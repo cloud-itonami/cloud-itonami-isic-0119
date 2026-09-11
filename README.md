@@ -16,7 +16,7 @@ records and maintains full transparency over decisions.
 `FieldOperationsGovernor` (`othercropops.governor`), composed by
 `othercropops.operation` following the itonami actor pattern
 (ADR-2607011000): `advise -> govern -> phase-gate -> commit | escalate |
-hold`. 30 tests / 102 assertions green (`clojure -M:test`).
+hold`. 30 tests / 102 assertions green (`kbb -M:test`).
 
 `othercropops.operation` is a synchronous stub of this flow (see its
 docstring) — production wiring into a `langgraph-clj` StateGraph with
@@ -120,7 +120,7 @@ Mirrors `cloud-itonami-isic-0113` (`vegops.*`) module-for-module:
 - `othercropops.governor` — `FieldOperationsGovernor`: hard invariants + escalation gates
 - `othercropops.phase` — 0→3 rollout phase gate
 - `othercropops.operation` — composes advisor → governor → phase into one operation run
-- `othercropops.sim` — demo runner (`clojure -M:run`)
+- `othercropops.sim` — demo runner (`kbb -M:run`)
 
 ## Capability layer
 
@@ -138,9 +138,9 @@ See [`docs/business-model.md`](docs/business-model.md) and
 ## Testing
 
 ```bash
-clojure -M:test   # run the test suite
-clojure -M:lint   # clj-kondo, 0 errors / 0 warnings
-clojure -M:run    # demo runner
+kbb -M:test   # run the test suite
+kbb -M:lint   # clj-kondo, 0 errors / 0 warnings
+kbb -M:run    # demo runner
 ```
 
 ## License
