@@ -1,5 +1,5 @@
 (ns othercropops.store-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [othercropops.store :as store]))
 
 (deftest mem-store-creation

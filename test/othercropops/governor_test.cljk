@@ -1,5 +1,5 @@
 (ns othercropops.governor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [othercropops.governor :as gov]
             [othercropops.store :as store]))
 
