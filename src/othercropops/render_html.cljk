@@ -20,7 +20,7 @@
 
   Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [jp-go-dds.skin]
+  (:require [kotoba.io :as kio] [jp-go-dds.skin]
             [kotoba.lang.text :as str]
             [othercropops.store :as store]
             [othercropops.operation :as op]))
@@ -216,10 +216,10 @@
   (let [out (or (first args) "docs/samples/operator-console.html")
         result (run-demo!)
         html (render result)
-        out-file (java.io.File. out)
+        out-file (kio/file out)
         hard-n (count (filter #(= :governor-hold (:t %)) (:ledger result)))]
-    (when-let [parent (.getParentFile out-file)]
-      (.mkdirs parent))
+    (when-let [parent (kio/parent-file out-file)]
+      (kio/mkdirs parent))
     (spit out-file html)
     (println "wrote" out "(" (count (:ledger result)) "ledger facts,"
              hard-n "HARD holds )")
